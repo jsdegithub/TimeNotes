@@ -1,0 +1,15 @@
+{
+    "pages": [
+        "pages/classic/classic"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "光阴手记",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false,
+        "backgroundColor": "#fff"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}
