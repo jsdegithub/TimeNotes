@@ -1,2 +1,8 @@
-<!--pages/classic/classic.wxml-->
-<like></like>
+<view class="container">
+    <view class="header">
+        <epsoide class="epsoide" index="{{classic.index}}"></epsoide>
+        <like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}"></like>
+    </view>
+    <movie img="{{classic.image}}" content="{{classic.content}}"></movie>
+    <navi bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}"></navi>
+</view>
