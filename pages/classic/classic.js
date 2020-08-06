@@ -18,7 +18,7 @@ Page({
         classicModel.getLatest(res => {
             this.setData({
                 classic: res,
-                likeCount: res.fav_nums,
+                likeCount: res.fav_nums || 0,
                 likeStatus: res.like_status
             })
         })
@@ -53,7 +53,7 @@ Page({
     _getLikeStatus(artID, category){
         likeModel.getClassicLikeStatus(artID, category, res=>{
             this.setData({
-                likeCount:res.favor_nums,
+                likeCount:res.favor_nums || 0,
                 likeStatus:res.like_status
             })
         })

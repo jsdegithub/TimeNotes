@@ -30,7 +30,7 @@ Page({
         likeStatus.then(res=>{
             this.setData({
                 likeStatus:res.like_status,
-                likeCount:res.fav_nums
+                likeCount:res.fav_nums || 0
             })
         })
         detail.then(res=>{
