@@ -9,16 +9,25 @@ class ClassicModel extends HTTP {
             success: res => {
                 callback(res);
                 this._setLatestIndex(res.index);
+                let key=this._getKey(res.index);
+                wx.setStorageSync(key, res);
             }
         })
     }
     getClassic(index, nextOrPrevious, callback) {
-        this.request({
-            url: 'classic/'+index+'/'+nextOrPrevious,
-            success: res => {
-                callback(res);
-            }
-        })
+        let key =nextOrPrevious=='next'?this._getKey(index+1):this._getKey(index-1);
+        let classic = wx.getStorageSync(key);
+        if(!classic){
+            this.request({
+                url: 'classic/'+index+'/'+nextOrPrevious,
+                success: res => {
+                    wx.setStorageSync(key, res);
+                    callback(res);
+                }
+            })
+        }else{
+            callback(classic);
+        }
     }
 
     isFirst(index){
@@ -37,6 +46,11 @@ class ClassicModel extends HTTP {
     _getLatestIndex(){
        let index = wx.getStorageSync('latest');
        return index;
+    }
+
+    _getKey(index){
+        let key='classic-'+index;
+        return key;
     }
 }
 
