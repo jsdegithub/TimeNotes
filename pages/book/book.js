@@ -10,7 +10,8 @@ Page({
 
     data:{
         books:[],
-        searching:false
+        searching:false,
+        more:false
     },
 
     onLoad: function(options) {
@@ -31,6 +32,12 @@ Page({
     onCancel(event){
         this.setData({
             searching:false
+        })
+    },
+
+    onReachBottom(){
+        this.setData({
+            more:!this.data.more
         })
     }
 })
