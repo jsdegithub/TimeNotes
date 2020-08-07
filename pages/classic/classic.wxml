@@ -1,7 +1,12 @@
 <view class="container">
     <view class="header">
         <episode class="episode" index="{{classic.index}}"></episode>
-        <like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}"></like>
+        <view class="like-container">
+            <like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}"></like>
+            <button class="share-btn" open-type="share">
+                <image class="share" slot="img" src="/images/icon/share.png"></image>
+            </button>
+        </view>
     </view>
     <movie hidden="{{classic.type!=100}}" img="{{classic.image}}" content="{{classic.content}}">
     </movie>
@@ -10,5 +15,5 @@
     <essay hidden="{{classic.type!=300}}" img="{{classic.image}}" content="{{classic.content}}">
     </essay>
     <navi bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}"
-        latest="{{latest}}"></navi>
+        latest="{{latest}}" class="navi"></navi>
 </view>
