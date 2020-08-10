@@ -87,7 +87,8 @@ Component({
                 noResult:false
             });
             let q = event.detail.value || event.detail.text;
-            bookModel.search(0, q)
+            bookModel
+                .search(0, q)
                 .then(res => {
                     if(res.books.length==0){
                         this.setData({
