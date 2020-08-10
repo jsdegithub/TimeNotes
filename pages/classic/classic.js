@@ -53,7 +53,7 @@ Page({
     _getLikeStatus(artID, category){
         likeModel.getClassicLikeStatus(artID, category, res=>{
             this.setData({
-                likeCount:res.favor_nums || 0,
+                likeCount:res.fav_nums || 0,
                 likeStatus:res.like_status
             })
         })
